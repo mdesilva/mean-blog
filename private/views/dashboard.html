@@ -1,0 +1,73 @@
+<div ng-include="'private/views/privateHeader.html'">
+</div>
+
+<div class="col-md-2">
+
+</div>
+
+<div class="col-md-8">
+<div class="alert alert-info" ng-if="message">
+  <strong> {{ message }} </strong>
+</div>
+<div class="row" ng-hide="showNewPost || showEditor">
+<h2 class="text-center"> Welcome to your dashboard, {{ name }} </h2>
+<div class="row">
+<div class="col-md-3 col-md-offset-3">
+<button class="btn btn-primary btn-block" ng-click="createNewPost()"> Create A New Post </button>
+</div>
+<div class="col-md-3">
+<a ui-sref="blog({username: username})">
+<button class="btn btn-success btn-block" ng-click="goToBlog()"> View My Blog </button>
+</a>
+</div>
+</div>
+</br>
+<h4> My Posts </h4>
+<div class="panel panel-info" ng-repeat="post in posts" >
+  <div class="row">
+    <div class="col-md-8">
+      <h3> {{ post.title}} </h3>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-warning btn-md" ng-click="editPost(post._id)"> Edit Post </button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-danger btn-md" ng-click="deletePost(post._id)"> Delete Post </button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="row" ng-show="showNewPost"> <!--the ng-show directive shows the specified HTML element if the element evaluates to true !-->
+<h4> New Post </h4>
+<div class="form-group">
+<label for="title"> Title </label>
+<input type="text" class="form-control" ng-model="newPost.title" name="title"></input>
+</div>
+<div class="form-group">
+<label for="content"> Content </label>
+<textarea class="form-control" ng-model="newPost.content" name="content" placeholder="Write down your thoughts here"></textarea>
+</div>
+<div class="form-group">
+<button ng-click="submitNewPost()" class="btn btn-primary btn-md"> Publish Post </button>
+<button class="btn btn-info btn-md" ng-click="cancel()"> Cancel </button>
+</div>
+</div>
+
+
+<div class="row" ng-show="showEditor">
+<h4> Edit your post, {{ editPost.title }} </h4>
+<div class="form-group">
+<label for="title"> Title </label>
+<input type="text" class="form-control" ng-model="editPost.title" name="title"></input>
+</div>
+<div class="form-group">
+<label for="content"> Post content </label>
+<textarea class="form-control" ng-model="editPost.content" name="content" rows="5"></textarea>
+</div>
+<div class="form-group">
+  <button class="btn btn-success btn-md" ng-click="updatePost()"> Update Post </button>
+  <button class="btn btn-info btn-md" ng-click="cancel()"> Cancel </button>
+</div>
+</div>

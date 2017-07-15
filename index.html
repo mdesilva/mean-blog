@@ -1,0 +1,61 @@
+<html>
+<head>
+<title> Dynamic Blog App </title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+<script src="/private/controllers/router.js"></script>
+<script src="/private/controllers/navigation.js"></script>
+<script src="/private/controllers/signUp.js"></script>
+<script src="/private/controllers/private-header.js"></script>
+<script src="/private/controllers/dashboard.js"></script>
+<script src="/private/controllers/editBlog.js"></script>
+<script src="/private/controllers/publicBlog.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+</head>
+<body ng-app="blog">
+  <div class="container">
+    <div id="header" ng-controller="navigationController">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+            <span class="sr-only"> Toggle navigation </span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"> Blogr </a>
+        </div>
+        <div class="collapse navbar-collapse" id="mainNav" >
+          <form class="navbar-form navbar-right" ng-hide="loggedIn">
+          <div class="form-group" ng-show="showLogin">
+          <input type="text" ng-model="login.username" class="form-control" placeholder="Username: "></input>
+          </div>
+          <div class="form-group" ng-show="showLogin">
+          <input type="password" ng-model="login.password" class="form-control" placeholder="Enter Password: "></input>
+          </div>
+          <button class="btn btn-info btn-md" ng-click="loginUser()"> Log In </button>
+        </br>
+        <p style="color:red"> {{ loginStatusMessage }} </p>
+        </form>
+        <ul class="nav navbar-nav navbar-left" ng-hide="loggedIn">
+          <li><a ui-sref="signUp"> Sign Up </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right" ng-if="loggedIn">
+            <li><a ui-sref="dashboard"> Dashboard </a> </li>
+            <li><a ui-sref="editBlog"> Your Account </a></li>
+            <li><a href="#" ng-click="logOut()"> Logout </a></li>
+          </ul>
+        </div>
+        </div>
+    </nav>
+
+      <div class="row">
+          <ui-view></ui-view>
+        </div>
+    </div>
+  </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
