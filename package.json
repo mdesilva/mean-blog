@@ -4,7 +4,7 @@
   "description": "Blogging webapp that ties together Angular, Express, Mongo and Passport",
   "main": "app.js",
   "scripts": {
-    "test": "app"
+    "start": "node app.js"
   },
   "author": "Manuja DeSilva",
   "license": "ISC",
@@ -19,5 +19,9 @@
     "mongoose": "^4.11.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "npm": "4.1.2",
+    "node": "7.7.3"
   }
 }
