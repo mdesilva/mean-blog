@@ -6,7 +6,6 @@ angular.module('blog').controller('publicBlogController', ['$scope', '$http', '$
   console.log(request.username)
   if(request.username != null){
   $http.post("/api/getPosts", request).then(function(response){
-    console.log(response.data);
     $scope.posts = response.data;
   })
 

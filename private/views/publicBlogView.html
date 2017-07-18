@@ -1,8 +1,7 @@
-<div class="jumbotron text-center">
-    <h1> {{ title }} </h1>
+<div class="jumbotron text-center" style="background-color:#b72323">
+    <h1 style="color:white"> {{ title }} </h1>
 </div>
-<div class="col-md-8 col-md-offset-1">
-<h1> Latest Posts </h1>
+<div class="col-md-8">
 <div class="row" ng-repeat="post in posts">
   <div class="panel panel-primary">
     <div class="panel-heading"> <h3> {{ post.title }} </h3></div>
@@ -12,11 +11,15 @@
   </div>
 </div>
 </div>
-<div class="col-md-3">
+<div class="col-md-3 col-md-offset-1">
+<div class="well">
 <h4> About the blog </h4>
 <p> {{blogBio}} </p>
 </br>
-<h4> About the author </h4>
-<h3> {{ fullName }} </h3>
+</div>
+<div class="well">
+<h4 class="text-center"> About the author </h4>
+<h3 class="text-center"> {{ fullName }} </h3>
 <p> {{ userBio }} </p>
+</div>
 </div>

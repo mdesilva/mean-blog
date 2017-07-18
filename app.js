@@ -17,9 +17,8 @@ db.once('open', function(){
   console.log("Connected to database!")
 });
 
-app.use('/private', express.static('private'));
-app.use(cookieParser());
 app.use(bodyParser.json());
+app.use('/private', express.static('private'));
 app.use(bodyParser.urlencoded({extended: false }));
 
 
