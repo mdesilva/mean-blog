@@ -8,7 +8,8 @@ var userController = require(__dirname + '/server/controllers/user-controller');
 var blogController = require(__dirname + '/server/controllers/blog-controller');
 var app = express();
 
-mongoose.connect('mongodb://localhost:27017/blog', {useMongoClient: true});
+//mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect('mongodb://mdesilva:LOgitech22@ds163672.mlab.com:63672/mean-blog', {useMongoClient: true});
 
 var db = mongoose.connection;
 
