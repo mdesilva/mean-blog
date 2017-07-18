@@ -26,7 +26,7 @@ app.use(session({secret: 'mysecretkey', cookie: { expires: false}}));
 app.use(passport.initialize());
 app.use(passport.session()); //persistent login sessions
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
 
 app.get("/", function(req,res){
   res.sendFile(__dirname + '/index.html');
