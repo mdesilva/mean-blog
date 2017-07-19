@@ -15,6 +15,7 @@
 <script src="/private/controllers/editBlog.js"></script>
 <script src="/private/controllers/publicBlog.js"></script>
 <script src="/private/controllers/toolbar.js"></script>
+<script src="/private/controllers/view-post.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -22,7 +23,7 @@
 <link rel="stylesheet" href="/private/styles/customStyles.css">
 </head>
 <body ng-app="blog">
-  <div class="container">
+  <div class="container-fluid">
     <div id="header" ng-controller="navigationController">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -33,7 +34,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"> Blogr </a>
+          <a class="navbar-brand" ui-sref="main"> Blogr </a>
         </div>
         <div class="collapse navbar-collapse" id="mainNav" >
           <form class="navbar-form navbar-right" ng-hide="loggedIn">
@@ -58,11 +59,12 @@
         </div>
         </div>
     </nav>
-
-      <div class="row">
+  </div>
+</div>
+<div class="container">
           <ui-view></ui-view>
-        </div>
     </div>
   </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</div>

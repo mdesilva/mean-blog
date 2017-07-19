@@ -1,6 +1,8 @@
 angular.module('blog').controller('publicBlogController', ['$scope', '$http', '$state', '$stateParams', function($scope, $http, $state, $stateParams){
+
+  $scope.username = $stateParams.username
   var request = {
-    username: $stateParams.username
+    username: $scope.username
   };
 
   var posts = [];
@@ -19,7 +21,6 @@ angular.module('blog').controller('publicBlogController', ['$scope', '$http', '$
     $scope.userBio = response.data.userBio;
     $scope.fullName = response.data.fullname;
   })
-    $scope.codeSnippet = "<script>This is some code here </script>"
   }
 
 

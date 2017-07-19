@@ -1,6 +1,8 @@
 var app = angular.module('blog', ['ui.router','textAngular']);
 
-app.config(function($stateProvider){
+app.config(function($stateProvider, $urlRouterProvider){
+
+  $urlRouterProvider.otherwise('/')
 
   var checkLoggedIn = function($q, $http, $rootScope, $state){
     var deferred = $q.defer(); //set up the promise
@@ -52,6 +54,12 @@ app.config(function($stateProvider){
     name: 'main',
     url: '/',
     templateUrl: 'private/views/main.html'
+  })
+  .state({
+    name: "viewPost",
+    url: '/viewPost/:username/:postId',
+    templateUrl: 'private/views/viewPost.html',
+    controller: 'viewPostController'
   })
 
 })

@@ -4,7 +4,7 @@
 <div class="col-md-8">
 <div class="row" ng-repeat="post in posts">
   <div class="panel panel-primary">
-    <div class="panel-heading"> <h3> {{ post.title }} </h3></div>
+    <div class="panel-heading"><h3><a ui-sref="viewPost({username: username, postId: post._id})" style="color:inherit;decoration:none"> {{ post.title }} </a></h3></div>
     <div class="panel-body" ng-bind-html="post.content">
     </div>
     <div class="panel-footer">
