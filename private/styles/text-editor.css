@@ -1,0 +1,25 @@
+.ta-editor {
+  min-height: 300px;
+  height: auto;
+  overflow: auto;
+  font-family: inherit;
+  font-size: 100%;
+  margin:20px 0;
+}
+
+.codeSnippet {
+  color: green;
+  font-family: "Lucida Console";
+}
+
+.red{
+  color: red;
+}
+
+.panel-body{
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+.panel-heading{
+  font-family: "Roboto", sans-serif;
+}

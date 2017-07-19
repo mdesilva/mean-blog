@@ -6,9 +6,8 @@ angular.module('blog').controller('dashboardController', ['$scope', '$http', '$r
   $scope.showNewPost;
   $scope.showExistingPosts;
   $scope.message;
-
   var refresh = function(){ //refresh the main dashboard view after the user executes an action to create, update, or delete a post
-
+    var posts = [];
     var dismissMessage = function(){
       $scope.message = false;
       console.log("The message has been removed")
@@ -18,7 +17,11 @@ angular.module('blog').controller('dashboardController', ['$scope', '$http', '$r
     }
 
     $http.post("/api/getPosts", request = {username: user.username}).then(function(response){
-      $scope.posts = response.data;
+      var response = response.data;
+      response.forEach(function(post){
+        posts.push(post.posts); //push each post into a sorted array
+      })
+      $scope.posts = posts;
     })
 
   }

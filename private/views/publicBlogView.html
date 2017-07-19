@@ -5,8 +5,10 @@
 <div class="row" ng-repeat="post in posts">
   <div class="panel panel-primary">
     <div class="panel-heading"> <h3> {{ post.title }} </h3></div>
-    <div class="panel-body">
-      <p> {{ post.content }} </p>
+    <div class="panel-body" ng-bind-html="post.content">
+    </div>
+    <div class="panel-footer">
+      {{post.date | date: "MMMM d, y h:mm a"}}
     </div>
   </div>
 </div>
@@ -21,5 +23,4 @@
 <h4 class="text-center"> About the author </h4>
 <h3 class="text-center"> {{ fullName }} </h3>
 <p> {{ userBio }} </p>
-</div>
 </div>

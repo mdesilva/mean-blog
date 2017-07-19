@@ -1,4 +1,4 @@
-var app = angular.module('blog', ['ui.router']);
+var app = angular.module('blog', ['ui.router','textAngular']);
 
 app.config(function($stateProvider){
 

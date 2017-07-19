@@ -8,7 +8,7 @@ var userController = require(__dirname + '/server/controllers/user-controller');
 var blogController = require(__dirname + '/server/controllers/blog-controller');
 var app = express();
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/blog', {useMongoClient: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://heroku_vgqc05h5:2iiva15iav1b9koh4prcs6c5mj@ds163612.mlab.com:63612/heroku_vgqc05h5', {useMongoClient: true});
 
 var db = mongoose.connection;
 

@@ -11,7 +11,6 @@ module.exports.editBlogInfo = function(req,res){
       console.log(err)
     }
     else{
-      console.log("Blog profile successfully updated");
       res.json({status: 200, message: "Blog profile successfully updated"});
     }
   })
@@ -25,7 +24,6 @@ module.exports.editUserInfo = function(req,res){
       console.log(err)
     }
     else{
-      console.log("User profile successfully updated");
       res.json({status: 200, message: "User profile successfully updated"})
     }
   } )
@@ -39,7 +37,6 @@ module.exports.getBlogInfo = function(req,res){
       console.log(err)
     }
     else{
-      console.log(docs);
       res.json(docs);
     }
   })
@@ -62,12 +59,14 @@ module.exports.createPost = function(req,res){
 
 module.exports.getPosts = function(req,res){
   var username = req.body.username;
-  User.findOne({username: username}, {"posts": true, _id:false}).exec(function(err,docs){
+  //$unwind: give each sub document in an array to be its own document, with all the fields of the main document
+  //$project: restrict the fields that are returned
+  User.aggregate({$match: {username: username}}, {$unwind: "$posts"}, {$project: {posts: 1, _id:0}}, {$sort: {'posts': 1}}, function(err,docs){
     if(err){
       console.log(err)
     }
     else{
-      res.json(docs.posts)
+      res.json(docs);
     }
   })
 }
