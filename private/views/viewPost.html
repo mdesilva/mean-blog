@@ -3,5 +3,19 @@
     <a ui-sref="blog({username: username})"> << Back to Blog </a>
     <h2> {{ title }} </h2>
     <p ng-bind-html="content"></p>
+    <div class="row">
+      <button class="btn btn-primary btn-sm" ng-click="addComment()"> Comment </button>
+      <div class="row">
+      <div class="alert alert-warning" ng-if="message"> {{ message }} </div>
+    </div>
+      <div ng-if="showComment">
+      <div class="form-group">
+        <label for="content"> Your comment: </label>
+        <textarea class="form-control" ng-model="comment.content" rows=5></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success btn-sm" ng-click="submitComment()"> Submit </button>
+      </div>
+    </div>
   </div>
 </div>

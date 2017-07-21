@@ -1,5 +1,6 @@
 angular.module('blog').controller('signUpController', ['$scope', '$http', function($scope, $http){
 
+
   $scope.createUser = function(){
     $http.post("/api/createUser", $scope.newUser).then(function(response){
       var response = response.data.message;

@@ -25,4 +25,6 @@
 </div>
 <div class="alert alert-info" ng-if="editUserStatus"> {{ editUserStatus }} </div>
 </form>
+<button class="btn btn-danger btn-lg" ng-click="deleteUser()"> Delete Account </button>
+<div class="alert alert-warning" ng-if="message"> {{ message }} </div>
 </div>

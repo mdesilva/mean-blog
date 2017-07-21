@@ -115,3 +115,15 @@ module.exports.deletePost = function(req,res){
     }
   })
 }
+
+module.exports.deleteUser = function(req,res){
+  var username = req.body.username
+  User.findOneAndRemove({username:username}, function(err,docs){
+    if(err){
+      console.log(err)
+    }
+    else{
+      res.json({message: "User account successfully deleted"})
+    }
+  })
+}

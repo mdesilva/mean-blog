@@ -17,11 +17,16 @@ angular.module('blog').controller('dashboardController', ['$scope', '$http', '$r
     }
 
     $http.post("/api/getPosts", request = {username: user.username}).then(function(response){
+      if(response.data.length === 0){
+        $scope.message = "You have no posts yet!"
+      }
+      else{
       var response = response.data;
       response.forEach(function(post){
         posts.push(post.posts); //push each post into a sorted array
       })
       $scope.posts = posts;
+    }
     })
 
   }

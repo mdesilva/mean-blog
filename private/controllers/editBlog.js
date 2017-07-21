@@ -39,5 +39,11 @@ angular.module('blog').controller('editBlogController', ['$scope', '$http', '$st
     })
   }
 
+  $scope.deleteUser = function() {
+    $http.post("/api/deleteUser", request= {username: user.username}).then(function(response){
+      $scope.message = response.data.message;
+    })
+  }
+
 
 }])

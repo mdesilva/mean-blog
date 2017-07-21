@@ -9,6 +9,8 @@ module.exports.createUser = function(req,res){
   var firstname = req.body.firstname;
   var lastname = req.body.lastname;
   var fullname = (firstname + " " + lastname)
+  var blogTitle = req.body.blogTitle;
+  var blogBio = req.body.blogBio;
   User.findOne({username: username}, function(err,user){
     if(user){ //if a user is found
       res.json({message: "User already exists!"})
@@ -19,6 +21,8 @@ module.exports.createUser = function(req,res){
       user.firstname = firstname;
       user.lastname = lastname;
       user.fullname = fullname;
+      user.blogTitle = blogTitle;
+      user.blogBio = blogBio;
       bcrypt.hash(password, null,null, function(err,hash){ //hash the password asyncronously and store it in the user.password field
         user.password = hash;
       });

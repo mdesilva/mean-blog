@@ -1,22 +1,38 @@
 <div class="col-md-8 col-md-offset-2">
+<div class="jumbotron text-center" ng-style="" ng-if="newUser.blogTitle">
+<h1> {{ newUser.blogTitle }} </h1>
+</div>
 <h2> Create An Account </h2>
 <form ng-submit="createUser()">
   <div class="alert alert-danger" ng-if="errorMessage"> {{ errorMessage }} </div>
   <div class="form-group">
+    <label for="blogTitle"> What's the name of your blog ? </label>
+    <input type="text" class="form-control" ng-model="newUser.blogTitle" required></input>
+  </div>
+  <div class="form-group">
+    <label for="blogBio"> What's your blog going to be about ? </label>
+    <input type="text" class="form-control" ng-model="newUser.blogBio"></input>
+  </div>
+  <!--
+  <div class="form-group">
+    <label for="headerColor"> Pick a header color </label>
+    <input type="color" class="form-control" ng-model="newUser.headerColor"></input>
+  </div> !-->
+  <div class="form-group">
     <label for="username"> Username: </label>
-    <input class="form-control" type="text" ng-model="newUser.username" name="username"> </input>
+    <input class="form-control" type="text" ng-model="newUser.username" name="username" required> </input>
   </div>
   <div class="form-group">
     <label for="password"> Password: </label>
-    <input class="form-control" type="password" ng-model="newUser.password" name="password"></input>
+    <input class="form-control" type="password" ng-model="newUser.password" name="password" required></input>
   </div>
   <div class="form-group">
     <label for="firstName"> First name: </label>
-    <input type="text" class="form-control" ng-model="newUser.firstname"></input>
+    <input type="text" class="form-control" ng-model="newUser.firstname" required></input>
   </div>
   <div class="form-group">
     <label for="lastName"> Last name: </label>
-    <input type="text" class="form-control" ng-model="newUser.lastname"></input>
+    <input type="text" class="form-control" ng-model="newUser.lastname" required></input>
   </div>
   <div class="form-group">
     <button type="submit" class="btn btn-success btn-lg"> Submit </button>

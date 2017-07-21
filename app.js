@@ -69,3 +69,4 @@ app.post("/api/getPosts", blogController.getPosts);
 app.post("/api/getPostById", blogController.getPostById);
 app.post("/api/updatePost", blogController.updatePost);
 app.post("/api/deletePost", blogController.deletePost);
+app.post("/api/deleteUser", blogController.deleteUser);
